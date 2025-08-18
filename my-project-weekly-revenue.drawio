@@ -1,0 +1,96 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0" version="27.1.6">
+  <diagram name="Page-1" id="hlgyCx6dmxvg3r35l4QV">
+    <mxGraphModel dx="627" dy="748" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="nwT4y94C3Cy4kr0WmKsY-1" target="nwT4y94C3Cy4kr0WmKsY-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-1" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;Start&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="365" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="nwT4y94C3Cy4kr0WmKsY-3" target="nwT4y94C3Cy4kr0WmKsY-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-3" value="Login/Signup&lt;div&gt;OTP with phone number&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="365" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nwT4y94C3Cy4kr0WmKsY-5" target="nwT4y94C3Cy4kr0WmKsY-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="515" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nwT4y94C3Cy4kr0WmKsY-5" target="nwT4y94C3Cy4kr0WmKsY-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nwT4y94C3Cy4kr0WmKsY-5" target="nwT4y94C3Cy4kr0WmKsY-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-5" value="Create menu..." style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="430" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-6" value="Cost" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="500" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-7" value="Profit" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="540" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-8" value="Weekly selection&lt;div&gt;(Mon-Sun)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-9" value="Add outcome" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-10" value="Weekly selection&lt;div&gt;(Mon-Sun)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="695" y="680" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="nwT4y94C3Cy4kr0WmKsY-11" target="nwT4y94C3Cy4kr0WmKsY-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-14" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="nwT4y94C3Cy4kr0WmKsY-13">
+          <mxGeometry x="-0.3091" y="3" relative="1" as="geometry">
+            <mxPoint x="12" y="-28" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nwT4y94C3Cy4kr0WmKsY-11" target="nwT4y94C3Cy4kr0WmKsY-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-19" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="nwT4y94C3Cy4kr0WmKsY-18">
+          <mxGeometry x="-0.0154" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-11" value="First time?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="385" y="260" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="nwT4y94C3Cy4kr0WmKsY-20" target="nwT4y94C3Cy4kr0WmKsY-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-20" value="Menu done" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="700" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-23" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="310" y="630" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-24" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="310" y="650" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-26" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="310" y="670" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-27" value="Detail&lt;div&gt;ธรรมดา พิเศษ ดาวเจียว?..&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="580" width="80" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-29" value="Dashboard Total&lt;div&gt;1.Revenue&lt;/div&gt;&lt;div&gt;2.Cost&lt;/div&gt;&lt;div&gt;3.Net profit&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;End week at Sun 23:59&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="665" y="360" width="150" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="nwT4y94C3Cy4kr0WmKsY-30" value="Dashboard Weekly&lt;div&gt;1.Revenue&lt;/div&gt;&lt;div&gt;2.Cost&lt;/div&gt;&lt;div&gt;3.Net profit&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;End week at Sun 23:59&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="665" y="530" width="150" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
