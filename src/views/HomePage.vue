@@ -176,7 +176,7 @@
           class="merchant-card"
           :class="{ highlighted: merchant.id === selectedMerchantId }"
         >
-          <div class="merchant-card-header">
+          <div class="merchant-card-header" >
             <div class="merchant-icon">
               {{ merchant.name.charAt(0).toUpperCase() }}
             </div>
@@ -202,25 +202,19 @@
           </div>
           
           <div class="merchant-metrics">
-            <div class="metric">
-              <div class="metric-header">
-                <span class="metric-label">{{ t('income') }}</span>
-              </div>
-              <p class="metric-value income">{{ formatCurrency(merchant.income) }}</p>
+            <div class="stat-section">
+              <div class="stat-label">{{ t('income') }}</div>
+              <span class="stat-value income">{{ formatCurrency(merchant.income) }}</span>
             </div>
             
-            <div class="metric">
-              <div class="metric-header">
-                <span class="metric-label">{{ t('outcome') }}</span>
-              </div>
-              <p class="metric-value outcome">{{ formatCurrency(merchant.outcome) }}</p>
+            <div class="stat-section">
+              <div class="stat-label">{{ t('outcome') }}</div>
+              <span class="stat-value outcome">{{ formatCurrency(merchant.outcome) }}</span>
             </div>
             
-            <div class="metric">
-              <div class="metric-header">
-                <span class="metric-label">{{ t('revenue') }}</span>
-              </div>
-              <p class="metric-value revenue">{{ formatCurrency(merchant.revenue) }}</p>
+            <div class="stat-section">
+              <div class="stat-label">{{ t('revenue') }}</div>
+              <span class="stat-value revenue">{{ formatCurrency(merchant.revenue) }}</span>
             </div>
           </div>
 
@@ -1233,46 +1227,55 @@ onUnmounted(() => {
 
 .merchant-metrics {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
   margin-bottom: 20px;
 }
 
-.metric {
-  padding: 12px;
-  background: #f9fafb;
-  border-radius: 12px;
-}
-
-.metric-header {
+.merchant-metrics .stat-section {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 8px;
+  gap: 6px;
+  padding: 12px 8px;
 }
 
-.metric-label {
+.stat-label {
   font-size: 12px;
   color: #6b7280;
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.metric-value {
-  font-size: 20px;
+.stat-value {
+  font-size: 15px;
   font-weight: 700;
-  margin: 0 0 4px 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #f9fafb;
+  white-space: nowrap;
+  min-height: 36px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.metric-value.income {
+.stat-value.income {
   color: #10b981;
+  background: #f0fdf4;
 }
 
-.metric-value.outcome {
+.stat-value.outcome {
   color: #ef4444;
+  background: #fef2f2;
 }
 
-.metric-value.revenue {
+.stat-value.revenue {
   color: #4f46e5;
+  background: #eef2ff;
 }
 
 .metric-change {
@@ -1916,13 +1919,11 @@ onUnmounted(() => {
   .revenue-amount {
     font-size: 28px;
   }
-
-  .merchant-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .merchant-metrics {
-    grid-template-columns: 1fr;
+  
+  .stat-value {
+    font-size: 16px;
+    min-width: auto;
+    padding: 6px 10px;
   }
   
   .tracking-btn,
