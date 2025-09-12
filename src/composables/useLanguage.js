@@ -169,9 +169,14 @@ const translations = {
     of:'of',
     selected: 'Selected',
     selectDateForDailyTracking: 'Select Date for Daily Tracking',
-    createTracking: 'Create Tracking'
+    createTracking: 'Create Tracking',
+    noDailyTracking: 'No daily tracking yet',
+    createDailyTrackingFirst: 'Create your first daily tracking to start monitoring income and expenses',
+    createDailyTracking: 'Create Daily Tracking'  // IGNORE
   },
   th: {
+    noDailyTracking: 'ยังไม่มีการติดตามรายวัน',
+    createDailyTrackingFirst: 'สร้างการติดตามรายวันครั้งแรกของคุณเพื่อเริ่มติดตามรายรับและรายจ่าย',
     merchant: 'ร้านค้า',
     selectDateForDailyTracking: 'เลือกวันที่สำหรับการติดตามรายวัน',
     selected:"เลือก",

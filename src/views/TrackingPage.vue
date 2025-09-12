@@ -121,10 +121,10 @@
         <line x1="8" y1="2" x2="8" y2="6"/>
         <line x1="3" y1="10" x2="21" y2="10"/>
       </svg>
-      <p class="empty-title">No daily tracking yet</p>
-      <p class="empty-subtitle">Create your first daily tracking to start monitoring income and expenses</p>
+      <p class="empty-title">{{ t('noDailyTracking') }}</p>
+      <p class="empty-subtitle">{{ t('createDailyTrackingFirst') }}</p>
       <button @click="openDateSelector" class="empty-create-btn">
-        Create Daily Tracking
+        {{ t('createDailyTracking') }}
       </button>
     </div>
 
