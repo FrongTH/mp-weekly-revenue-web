@@ -52,7 +52,7 @@ func main() {
 	// CORS middleware for development
 	router.Use(func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			// log.Printf("📡 Incoming request: %s %s from %s", r.Method, r.URL.Path, r.RemoteAddr)
+			log.Printf("📡 Incoming request: %s %s from %s", r.Method, r.URL.Path, r.RemoteAddr)
 			
 			w.Header().Set("Access-Control-Allow-Origin", "*")
 			w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
