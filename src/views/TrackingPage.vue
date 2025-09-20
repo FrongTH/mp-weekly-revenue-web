@@ -3,10 +3,17 @@
     <!-- Header -->
     <div class="page-header">
       <button @click="goBack" class="back-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M19 12H5M12 19l-7-7 7-7" />
         </svg>
-        Back
+        {{ t('back') }}
       </button>
       <div class="header-content">
         <h1 class="page-title">{{ merchantName }} - {{ t('tracking') }}</h1>
@@ -16,21 +23,28 @@
     <!-- Action Section -->
     <div class="action-section">
       <button @click="openDateSelector" class="create-tracking-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 5v14M5 12h14"/>
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M12 5v14M5 12h14" />
         </svg>
         {{ t('createDailyTracking') }}
       </button>
       <div class="view-toggles">
-        <button 
-          @click="setViewMode('daily')" 
+        <button
+          @click="setViewMode('daily')"
           class="view-toggle-btn"
           :class="{ active: viewMode === 'daily' }"
         >
           {{ t('daily') }}
         </button>
-        <button 
-          @click="setViewMode('weekly')" 
+        <button
+          @click="setViewMode('weekly')"
           class="view-toggle-btn"
           :class="{ active: viewMode === 'weekly' }"
         >
@@ -49,77 +63,93 @@
     <div v-else-if="currentTrackingData.length > 0" class="tracking-list">
       <!-- Daily View -->
       <template v-if="viewMode === 'daily'">
-        <div 
-          v-for="tracking in currentTrackingData" 
-          :key="tracking.id"
-          class="daily-card-compact"
-        >
-        <div class="card-main" @click="selectDailyTracking(tracking)">
-          <div class="card-date">
-            {{ formatTrackingDate(tracking.trackingDate) }}
-          </div>
-          <div class="card-stats-equal">
-            <div class="stat-section">
-              <span class="stat-value income">{{ formatCurrency(tracking.income) }}</span>
+        <div v-for="tracking in currentTrackingData" :key="tracking.id" class="daily-card-compact">
+          <div class="card-main" @click="selectDailyTracking(tracking)">
+            <div class="card-date">
+              {{ formatTrackingDate(tracking.trackingDate) }}
             </div>
-            <div class="stat-section">
-              <span class="stat-value outcome">{{ formatCurrency(tracking.outcome) }}</span>
-            </div>
-            <div class="stat-section">
-              <span class="stat-value revenue" :class="getRevenueClass(tracking.revenue)">
-                {{ formatCurrency(tracking.revenue) }}
-              </span>
+            <div class="card-stats-equal">
+              <div class="stat-section">
+                <span class="stat-value income">{{ formatCurrency(tracking.income) }}</span>
+              </div>
+              <div class="stat-section">
+                <span class="stat-value outcome">{{ formatCurrency(tracking.outcome) }}</span>
+              </div>
+              <div class="stat-section">
+                <span class="stat-value revenue" :class="getRevenueClass(tracking.revenue)">
+                  {{ formatCurrency(tracking.revenue) }}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-        <button @click.stop="deleteDailyTracking(tracking)" class="delete-btn-right" title="Delete tracking">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6M5 6l1 13a2 2 0 002 2h8a2 2 0 002-2l1-13"/>
-          </svg>
-        </button>
+          <button
+            @click.stop="deleteDailyTracking(tracking)"
+            class="delete-btn-right"
+            title="Delete tracking"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6M5 6l1 13a2 2 0 002 2h8a2 2 0 002-2l1-13"
+              />
+            </svg>
+          </button>
         </div>
       </template>
 
       <!-- Weekly View -->
       <template v-if="viewMode === 'weekly'">
-        <div 
-          v-for="week in currentTrackingData" 
+        <div
+          v-for="week in currentTrackingData"
           :key="week.id"
           class="daily-card-compact weekly-card"
         >
-        <div class="card-main" @click="selectWeeklyData(week)">
-          <div class="card-date weekly-date">
-            <div class="week-range">{{ formatWeekRange(week.startDate, week.endDate) }}</div>
-            <div class="week-info">
-              <span>{{ t('week') }} {{ week.weekNumber }} {{ t('of') }} {{ week.year }}</span>
-              <span class="summary-badge">{{ t('summaryOnly') }}</span>
+          <div class="card-main" @click="selectWeeklyData(week)">
+            <div class="card-date weekly-date">
+              <div class="week-range">{{ formatWeekRange(week.startDate, week.endDate) }}</div>
+              <div class="week-info">
+                <span>{{ t('week') }} {{ week.weekNumber }} {{ t('of') }} {{ week.year }}</span>
+                <span class="summary-badge">{{ t('summaryOnly') }}</span>
+              </div>
+            </div>
+            <div class="card-stats-equal">
+              <div class="stat-section">
+                <span class="stat-value income">{{ formatCurrency(week.totalIncome) }}</span>
+              </div>
+              <div class="stat-section">
+                <span class="stat-value outcome">{{ formatCurrency(week.totalOutcome) }}</span>
+              </div>
+              <div class="stat-section">
+                <span class="stat-value revenue" :class="getRevenueClass(week.totalRevenue)">
+                  {{ formatCurrency(week.totalRevenue) }}
+                </span>
+              </div>
             </div>
           </div>
-          <div class="card-stats-equal">
-            <div class="stat-section">
-              <span class="stat-value income">{{ formatCurrency(week.totalIncome) }}</span>
-            </div>
-            <div class="stat-section">
-              <span class="stat-value outcome">{{ formatCurrency(week.totalOutcome) }}</span>
-            </div>
-            <div class="stat-section">
-              <span class="stat-value revenue" :class="getRevenueClass(week.totalRevenue)">
-                {{ formatCurrency(week.totalRevenue) }}
-              </span>
-            </div>
-          </div>
-        </div>
         </div>
       </template>
     </div>
 
     <!-- Empty State -->
     <div v-else-if="!isLoading" class="empty-state">
-      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-        <line x1="16" y1="2" x2="16" y2="6"/>
-        <line x1="8" y1="2" x2="8" y2="6"/>
-        <line x1="3" y1="10" x2="21" y2="10"/>
+      <svg
+        width="64"
+        height="64"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+      >
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+        <line x1="16" y1="2" x2="16" y2="6" />
+        <line x1="8" y1="2" x2="8" y2="6" />
+        <line x1="3" y1="10" x2="21" y2="10" />
       </svg>
       <p class="empty-title">{{ t('noDailyTracking') }}</p>
       <p class="empty-subtitle">{{ t('createDailyTrackingFirst') }}</p>
@@ -139,15 +169,15 @@
         <div class="modal-body">
           <!-- Tabs -->
           <div class="tabs">
-            <button 
-              @click="activeTab = 'income'" 
+            <button
+              @click="activeTab = 'income'"
               class="tab-btn"
               :class="{ active: activeTab === 'income' }"
             >
               Income
             </button>
-            <button 
-              @click="activeTab = 'outcome'" 
+            <button
+              @click="activeTab = 'outcome'"
               class="tab-btn"
               :class="{ active: activeTab === 'outcome' }"
             >
@@ -162,13 +192,20 @@
               <div class="section-header">
                 <h3>Income Details</h3>
                 <button class="add-btn">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14"/>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M12 5v14M5 12h14" />
                   </svg>
                   Add Income
                 </button>
               </div>
-              
+
               <div v-if="selectedTracking?.incomeItems?.length > 0" class="items-list">
                 <div v-for="item in selectedTracking.incomeItems" :key="item.id" class="item-row">
                   <span class="item-name">{{ item.name }}</span>
@@ -181,7 +218,9 @@
 
               <div class="total-row">
                 <span>Total Income</span>
-                <span class="total-amount income">{{ formatCurrency(selectedTracking?.income || 0) }}</span>
+                <span class="total-amount income">{{
+                  formatCurrency(selectedTracking?.income || 0)
+                }}</span>
               </div>
             </div>
 
@@ -190,13 +229,20 @@
               <div class="section-header">
                 <h3>Outcome Details</h3>
                 <button class="add-btn">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12h14"/>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M12 5v14M5 12h14" />
                   </svg>
                   Add Expense
                 </button>
               </div>
-              
+
               <div v-if="selectedTracking?.outcomeItems?.length > 0" class="items-list">
                 <div v-for="item in selectedTracking.outcomeItems" :key="item.id" class="item-row">
                   <span class="item-name">{{ item.name }}</span>
@@ -209,7 +255,9 @@
 
               <div class="total-row">
                 <span>Total Outcome</span>
-                <span class="total-amount outcome">{{ formatCurrency(selectedTracking?.outcome || 0) }}</span>
+                <span class="total-amount outcome">{{
+                  formatCurrency(selectedTracking?.outcome || 0)
+                }}</span>
               </div>
             </div>
           </div>
@@ -218,7 +266,13 @@
           <div class="summary-section">
             <div class="summary-item">
               <span>Net Revenue</span>
-              <span class="summary-value" :class="{ positive: selectedTracking?.revenue >= 0, negative: selectedTracking?.revenue < 0 }">
+              <span
+                class="summary-value"
+                :class="{
+                  positive: selectedTracking?.revenue >= 0,
+                  negative: selectedTracking?.revenue < 0,
+                }"
+              >
                 {{ formatCurrency(selectedTracking?.revenue || 0) }}
               </span>
             </div>
@@ -238,24 +292,38 @@
           <!-- Calendar Navigation -->
           <div class="calendar-header">
             <button @click="previousMonth" class="nav-btn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6"/>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M15 18l-6-6 6-6" />
               </svg>
             </button>
             <h3 class="month-title">{{ formatMonthYear(currentMonth, currentYear) }}</h3>
             <button @click="nextMonth" class="nav-btn" :disabled="isCurrentMonth">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 18l6-6-6-6"/>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M9 18l6-6-6-6" />
               </svg>
             </button>
           </div>
-          
+
           <!-- Calendar Grid -->
           <div class="calendar-container">
             <!-- Day Headers -->
             <div class="calendar-grid">
               <div class="day-header" v-for="day in dayHeaders" :key="day">{{ day }}</div>
-              
+
               <!-- Calendar Days -->
               <button
                 v-for="date in calendarDays"
@@ -264,9 +332,9 @@
                 class="calendar-day"
                 :class="{
                   'other-month': !date.isCurrentMonth,
-                  'today': date.isToday,
-                  'selected': date.dateString === selectedTrackingDate,
-                  'disabled': date.isFuture
+                  today: date.isToday,
+                  selected: date.dateString === selectedTrackingDate,
+                  disabled: date.isFuture,
                 }"
                 :disabled="date.isFuture || !date.isCurrentMonth"
               >
@@ -274,14 +342,22 @@
               </button>
             </div>
           </div>
-          
+
           <div class="selected-date-display" v-if="selectedTrackingDate">
-            <p>{{t('selected')}}: <strong>{{ formatSelectedDate(selectedTrackingDate) }}</strong></p>
+            <p>
+              {{ t('selected') }}: <strong>{{ formatSelectedDate(selectedTrackingDate) }}</strong>
+            </p>
           </div>
         </div>
         <div class="modal-footer">
           <button @click="closeDateSelector" class="btn-secondary">{{ t('cancel') }}</button>
-          <button @click="createDailyTracking" class="btn-primary" :disabled="!selectedTrackingDate">{{ t('createTracking') }}</button>
+          <button
+            @click="createDailyTracking"
+            class="btn-primary"
+            :disabled="!selectedTrackingDate"
+          >
+            {{ t('createTracking') }}
+          </button>
         </div>
       </div>
     </div>
@@ -341,7 +417,7 @@ const formatTrackingDate = (dateString) => {
     weekday: 'short',
     day: 'numeric',
     month: 'short',
-    year: 'numeric'
+    year: 'numeric',
   })
 }
 
@@ -350,23 +426,23 @@ const formatMonthYear = (month, year) => {
   const date = new Date(year, month)
   return date.toLocaleDateString('th-TH', {
     month: 'long',
-    year: 'numeric'
+    year: 'numeric',
   })
 }
 
 const formatSelectedDate = (dateString) => {
   if (!dateString) return ''
-  
+
   // Parse the date string as local date to avoid timezone issues
   // dateString format is "YYYY-MM-DD"
   const [year, month, day] = dateString.split('-').map(Number)
   const date = new Date(year, month - 1, day) // month is 0-indexed
-  
+
   return date.toLocaleDateString('th-TH', {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
-    year: 'numeric'
+    year: 'numeric',
   })
 }
 
@@ -374,18 +450,18 @@ const formatSelectedDate = (dateString) => {
 const formatWeekRange = (startDate, endDate) => {
   const start = new Date(startDate)
   const end = new Date(endDate)
-  
+
   const startFormatted = start.toLocaleDateString('th-TH', {
     day: 'numeric',
-    month: 'short'
+    month: 'short',
   })
-  
+
   const endFormatted = end.toLocaleDateString('th-TH', {
     day: 'numeric',
     month: 'short',
-    year: 'numeric'
+    year: 'numeric',
   })
-  
+
   return `${startFormatted} - ${endFormatted}`
 }
 
@@ -413,15 +489,15 @@ const calendarDays = computed(() => {
   // const lastDay = new Date(currentYear.value, currentMonth.value + 1, 0) // Not used
   const startDate = new Date(firstDay)
   startDate.setDate(startDate.getDate() - firstDay.getDay())
-  
+
   const days = []
   const today = new Date()
   today.setHours(0, 0, 0, 0)
-  
+
   for (let i = 0; i < 42; i++) {
     const date = new Date(startDate)
     date.setDate(startDate.getDate() + i)
-    
+
     const isCurrentMonth = date.getMonth() === currentMonth.value
     // Create date string in local timezone to avoid UTC conversion issues
     const year = date.getFullYear()
@@ -430,7 +506,7 @@ const calendarDays = computed(() => {
     const dateString = `${year}-${month}-${day}`
     const isToday = date.getTime() === today.getTime()
     const isFuture = date > today
-    
+
     days.push({
       day: date.getDate(),
       date: date,
@@ -438,10 +514,10 @@ const calendarDays = computed(() => {
       isCurrentMonth: isCurrentMonth,
       isToday: isToday,
       isFuture: isFuture,
-      key: `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
+      key: `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,
     })
   }
-  
+
   return days
 })
 
@@ -457,7 +533,7 @@ const previousMonth = () => {
 
 const nextMonth = () => {
   if (isCurrentMonth.value) return // Don't allow future months
-  
+
   if (currentMonth.value === 11) {
     currentMonth.value = 0
     currentYear.value++
@@ -498,8 +574,8 @@ const createDailyTracking = async () => {
       },
       body: JSON.stringify({
         merchant_id: merchantId.value,
-        tracking_date: selectedTrackingDate.value
-      })
+        tracking_date: selectedTrackingDate.value,
+      }),
     })
 
     if (!response.ok) {
@@ -507,7 +583,7 @@ const createDailyTracking = async () => {
     }
 
     const data = await response.json()
-    
+
     // If tracking already exists, navigate to it
     if (data.exists) {
       console.log('Daily tracking already exists:', data.tracking_id)
@@ -516,30 +592,29 @@ const createDailyTracking = async () => {
         params: { trackingId: data.tracking_id },
         query: {
           merchantId: merchantId.value,
-          merchantName: merchantName.value
-        }
+          merchantName: merchantName.value,
+        },
       })
     } else {
       // Add new tracking to the list
       const income = data.total_income || 0
       const outcome = data.total_outcome || 0
       const revenue = income - outcome // Calculate revenue as income - outcome
-      
+
       const newTracking = {
         id: data.tracking_id,
         merchantId: data.merchant_id,
         trackingDate: data.tracking_date,
         income: income,
         outcome: outcome,
-        revenue: revenue
+        revenue: revenue,
       }
-      
+
       dailyTrackings.value.push(newTracking)
       console.log('Created daily tracking:', data.tracking_id)
     }
-    
+
     closeDateSelector()
-    
   } catch (error) {
     console.error('Error creating daily tracking:', error)
     alert('Failed to create daily tracking. Please try again.')
@@ -552,19 +627,19 @@ const generateWeeklyData = () => {
     weeklyData.value = []
     return
   }
-  
+
   // Group daily trackings by week
   const weekGroups = new Map()
-  
-  dailyTrackings.value.forEach(tracking => {
+
+  dailyTrackings.value.forEach((tracking) => {
     const date = new Date(tracking.trackingDate)
     const weekStart = getWeekStart(date)
     const weekKey = weekStart.toISOString().split('T')[0]
-    
+
     if (!weekGroups.has(weekKey)) {
       const weekEnd = new Date(weekStart)
       weekEnd.setDate(weekStart.getDate() + 6)
-      
+
       weekGroups.set(weekKey, {
         id: `week-${weekKey}`,
         startDate: weekKey,
@@ -574,20 +649,21 @@ const generateWeeklyData = () => {
         totalIncome: 0,
         totalOutcome: 0,
         totalRevenue: 0,
-        dailyTrackings: []
+        dailyTrackings: [],
       })
     }
-    
+
     const week = weekGroups.get(weekKey)
     week.totalIncome += tracking.income
     week.totalOutcome += tracking.outcome
     week.totalRevenue += tracking.revenue
     week.dailyTrackings.push(tracking)
   })
-  
+
   // Convert to array and sort by date (most recent first)
-  weeklyData.value = Array.from(weekGroups.values())
-    .sort((a, b) => new Date(b.startDate) - new Date(a.startDate))
+  weeklyData.value = Array.from(weekGroups.values()).sort(
+    (a, b) => new Date(b.startDate) - new Date(a.startDate),
+  )
 }
 
 // Helper functions for weekly data
@@ -615,21 +691,21 @@ const getWeekNumber = (date) => {
 // Select daily tracking for details
 const selectDailyTracking = (tracking) => {
   console.log('Selecting daily tracking:', tracking)
-  
+
   router.push({
     name: 'DailyTrackingPage',
     params: { trackingId: tracking.id },
     query: {
       merchantId: merchantId.value,
-      merchantName: merchantName.value
-    }
+      merchantName: merchantName.value,
+    },
   })
 }
 
 // Select weekly data (show error warning)
 const selectWeeklyData = (week) => {
   console.log('Selecting weekly data:', week)
-  
+
   // Show warning message to switch to daily view
   const shouldSwitchToDaily = confirm(t('weeklyViewWarning'))
 
@@ -645,7 +721,11 @@ const closeTrackingDetails = () => {
 
 // Delete daily tracking
 const deleteDailyTracking = async (tracking) => {
-  if (!confirm(`Are you sure you want to delete tracking for "${formatTrackingDate(tracking.trackingDate)}"?`)) {
+  if (
+    !confirm(
+      `Are you sure you want to delete tracking for "${formatTrackingDate(tracking.trackingDate)}"?`,
+    )
+  ) {
     return
   }
 
@@ -654,7 +734,7 @@ const deleteDailyTracking = async (tracking) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-      }
+      },
     })
 
     if (!response.ok) {
@@ -662,10 +742,9 @@ const deleteDailyTracking = async (tracking) => {
     }
 
     // Remove from local list
-    dailyTrackings.value = dailyTrackings.value.filter(t => t.id !== tracking.id)
-    
+    dailyTrackings.value = dailyTrackings.value.filter((t) => t.id !== tracking.id)
+
     console.log('Deleted daily tracking:', tracking.id)
-    
   } catch (error) {
     console.error('Error deleting daily tracking:', error)
     alert('Failed to delete daily tracking. Please try again.')
@@ -684,14 +763,14 @@ const fetchDailyTrackings = async () => {
     // Get recent daily trackings (last 30 days)
     const endDate = new Date().toISOString().split('T')[0]
     const startDate = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
-    
+
     const url = `${API_BASE_URL}/daily-tracking?merchant_id=${merchantId.value}&start_date=${startDate}&end_date=${endDate}`
     console.log('Fetching daily trackings from:', url)
-    
+
     const response = await fetch(url)
-    
+
     console.log('API Response status:', response.status)
-    
+
     if (!response.ok) {
       const errorText = await response.text()
       console.error('API Error response:', errorText)
@@ -700,35 +779,36 @@ const fetchDailyTrackings = async () => {
 
     const data = await response.json()
     console.log('Raw API data:', data)
-    
+
     // Handle case where API returns empty array or null
     if (!data || !Array.isArray(data)) {
       console.log('No daily trackings data received or invalid format')
       dailyTrackings.value = []
       return
     }
-    
+
     // Transform data for frontend
-    dailyTrackings.value = data.map(tracking => {
-      const income = tracking.total_income || 0
-      const outcome = tracking.total_outcome || 0
-      const revenue = income - outcome // Calculate revenue as income - outcome
-      
-      return {
-        id: tracking.tracking_id,
-        merchantId: tracking.merchant_id,
-        trackingDate: tracking.tracking_date,
-        income: income,
-        outcome: outcome,
-        revenue: revenue
-      }
-    }).sort((a, b) => new Date(b.trackingDate) - new Date(a.trackingDate)) // Sort by date descending
-    
+    dailyTrackings.value = data
+      .map((tracking) => {
+        const income = tracking.total_income || 0
+        const outcome = tracking.total_outcome || 0
+        const revenue = income - outcome // Calculate revenue as income - outcome
+
+        return {
+          id: tracking.tracking_id,
+          merchantId: tracking.merchant_id,
+          trackingDate: tracking.tracking_date,
+          income: income,
+          outcome: outcome,
+          revenue: revenue,
+        }
+      })
+      .sort((a, b) => new Date(b.trackingDate) - new Date(a.trackingDate)) // Sort by date descending
+
     console.log('Processed daily trackings:', dailyTrackings.value.length, dailyTrackings.value)
-    
+
     // Generate weekly data after fetching daily data
     generateWeeklyData()
-    
   } catch (error) {
     console.error('Error fetching daily trackings:', error)
     // Set empty array so UI shows empty state instead of nothing
@@ -745,20 +825,20 @@ onMounted(async () => {
   console.log('=== TrackingPage Mounted ===')
   console.log('Route params:', route.params)
   console.log('Route query:', route.query)
-  
+
   // Get merchant data from route params
   merchantId.value = route.params.merchantId || route.query.merchantId || ''
   merchantName.value = route.query.merchantName || 'Merchant'
-  
+
   console.log('Merchant ID:', merchantId.value)
   console.log('Merchant Name:', merchantName.value)
   console.log('API Base URL:', API_BASE_URL)
-  
+
   if (!merchantId.value) {
     console.error('No merchant ID found in route params or query!')
     return
   }
-  
+
   // Fetch existing daily trackings from API
   console.log('Starting to fetch daily trackings...')
   await fetchDailyTrackings()
@@ -1063,8 +1143,12 @@ onMounted(async () => {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-state p {
@@ -1570,40 +1654,40 @@ onMounted(async () => {
   .daily-card-compact {
     position: relative;
   }
-  
+
   .card-main {
     flex-direction: column;
     align-items: flex-start;
     padding: 12px 16px;
     padding-right: 50px;
   }
-  
+
   .card-date {
     min-width: auto;
     margin-right: 0;
     margin-bottom: 10px;
     font-size: 13px;
   }
-  
+
   .card-stats-equal {
     width: 100%;
   }
-  
+
   .stat-section {
     justify-content: flex-start;
   }
-  
+
   .stat-section:first-child,
   .stat-section:nth-child(2),
   .stat-section:last-child {
     flex: 0 0 33.33%;
   }
-  
+
   .stat-value {
     font-size: 14px;
     padding: 4px 8px;
   }
-  
+
   .delete-btn-right {
     position: absolute;
     top: 12px;
@@ -1612,7 +1696,7 @@ onMounted(async () => {
     height: 32px;
     margin-right: 0;
   }
-  
+
   .delete-btn-right svg {
     width: 16px;
     height: 16px;
