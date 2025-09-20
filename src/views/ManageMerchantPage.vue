@@ -3,8 +3,15 @@
     <!-- Header with Back Button -->
     <div class="page-header">
       <button @click="goBack" class="back-btn">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
         {{ t('back') }}
       </button>
@@ -25,15 +32,15 @@
     <!-- Tabs -->
     <div class="tabs-container">
       <div class="tabs">
-        <button 
-          @click="activeTab = 'main'" 
+        <button
+          @click="activeTab = 'main'"
           class="tab-btn"
           :class="{ active: activeTab === 'main' }"
         >
           {{ t('mainMenu') }}
         </button>
-        <button 
-          @click="activeTab = 'extra'" 
+        <button
+          @click="activeTab = 'extra'"
           class="tab-btn"
           :class="{ active: activeTab === 'extra' }"
         >
@@ -50,7 +57,11 @@
           <h3>{{ t('mainMenuItems') }}</h3>
           <button @click="openCreateMainModal" class="create-btn">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"/>
+              <path
+                fill-rule="evenodd"
+                d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                clip-rule="evenodd"
+              />
             </svg>
             {{ t('addMenuItem') }}
           </button>
@@ -59,8 +70,19 @@
         <!-- Menu Items List -->
         <div v-if="mainMenuItems.length === 0" class="empty-state">
           <div class="empty-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+              />
             </svg>
           </div>
           <h4>{{ t('noMenuItemsYet') }}</h4>
@@ -74,12 +96,18 @@
               <div class="action-buttons">
                 <button @click="openEditModal(item, 'main')" class="edit-btn">
                   <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
+                    <path
+                      d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                    />
                   </svg>
                 </button>
                 <button @click="deleteMenuItem(item.id, 'main')" class="delete-btn">
                   <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                    <path
+                      fill-rule="evenodd"
+                      d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                      clip-rule="evenodd"
+                    />
                   </svg>
                 </button>
               </div>
@@ -88,10 +116,6 @@
               <div class="price-item">
                 <span class="price-label">{{ t('general') }}:</span>
                 <span class="price-value">{{ formatCurrency(item.general_price || 0) }}</span>
-              </div>
-              <div class="price-item">
-                <span class="price-label">{{ t('delivery') }}:</span>
-                <span class="price-value delivery">{{ formatCurrency(item.delivery_price || 0) }}</span>
               </div>
             </div>
           </div>
@@ -104,7 +128,11 @@
           <h3>{{ t('extraOnTopItems') }}</h3>
           <button @click="openCreateExtraModal" class="create-btn">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"/>
+              <path
+                fill-rule="evenodd"
+                d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                clip-rule="evenodd"
+              />
             </svg>
             {{ t('addExtraItem') }}
           </button>
@@ -113,8 +141,15 @@
         <!-- Extra Items List -->
         <div v-if="extraMenuItems.length === 0" class="empty-state">
           <div class="empty-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
           </div>
           <h4>{{ t('noExtraItemsYet') }}</h4>
@@ -128,12 +163,18 @@
               <div class="action-buttons">
                 <button @click="openEditModal(item, 'extra')" class="edit-btn">
                   <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
+                    <path
+                      d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                    />
                   </svg>
                 </button>
                 <button @click="deleteMenuItem(item.id, 'extra')" class="delete-btn">
                   <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                    <path
+                      fill-rule="evenodd"
+                      d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                      clip-rule="evenodd"
+                    />
                   </svg>
                 </button>
               </div>
@@ -142,10 +183,6 @@
               <div class="price-item">
                 <span class="price-label">{{ t('general') }}:</span>
                 <span class="price-value">{{ formatCurrency(item.general_price || 0) }}</span>
-              </div>
-              <div class="price-item">
-                <span class="price-label">{{ t('delivery') }}:</span>
-                <span class="price-value delivery">{{ formatCurrency(item.delivery_price || 0) }}</span>
               </div>
             </div>
           </div>
@@ -159,31 +196,38 @@
         <div class="modal-header">
           <h3>{{ t('addMainMenuItem') }}</h3>
           <button @click="closeCreateMainModal" class="modal-close">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 6l12 12M6 18L18 6"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M6 6l12 12M6 18L18 6" />
             </svg>
           </button>
         </div>
-        
+
         <div class="modal-body">
           <div class="form-group">
             <label for="mainItemName">{{ t('menuItemName') }}</label>
-            <input 
+            <input
               id="mainItemName"
-              v-model="newMainItem.name" 
-              type="text" 
+              v-model="newMainItem.name"
+              type="text"
               :placeholder="t('enterMenuItemName')"
               class="form-input"
               :disabled="isCreating"
             />
           </div>
-          
+
           <div class="form-group">
             <label for="mainItemGeneralPrice">{{ t('generalSalePrice') }} (฿)</label>
-            <input 
+            <input
               id="mainItemGeneralPrice"
-              v-model="newMainItem.general_price" 
-              type="text" 
+              v-model="newMainItem.general_price"
+              type="text"
               @input="validatePrice('main', 'general')"
               placeholder="0"
               class="form-input"
@@ -192,30 +236,20 @@
             />
             <p v-if="priceError" class="field-error">{{ priceError }}</p>
           </div>
-          
-          <div class="form-group">
-            <label for="mainItemDeliveryPrice">{{ t('deliverySalePrice') }} (฿)</label>
-            <input 
-              id="mainItemDeliveryPrice"
-              v-model="newMainItem.delivery_price" 
-              type="text" 
-              @input="validatePrice('main', 'delivery')"
-              placeholder="0"
-              class="form-input"
-              :class="{ 'error-input': deliveryPriceError }"
-              :disabled="isCreating"
-            />
-            <p v-if="deliveryPriceError" class="field-error">{{ deliveryPriceError }}</p>
-          </div>
-          
+
+
           <p v-if="createError" class="error-message">{{ createError }}</p>
         </div>
-        
+
         <div class="modal-footer">
           <button @click="closeCreateMainModal" class="btn-secondary" :disabled="isCreating">
             {{ t('cancel') }}
           </button>
-          <button @click="createMainMenuItem" class="btn-primary" :disabled="!newMainItem.name || !isMainPriceValid || isCreating">
+          <button
+            @click="createMainMenuItem"
+            class="btn-primary"
+            :disabled="!newMainItem.name || !isMainPriceValid || isCreating"
+          >
             <span v-if="isCreating">{{ t('creating') }}...</span>
             <span v-else>{{ t('addItem') }}</span>
           </button>
@@ -229,30 +263,37 @@
         <div class="modal-header">
           <h3>{{ t('addExtraItem') }}</h3>
           <button @click="closeCreateExtraModal" class="modal-close">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 6l12 12M6 18L18 6"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M6 6l12 12M6 18L18 6" />
             </svg>
           </button>
         </div>
-        
+
         <div class="modal-body">
           <div class="form-group">
             <label for="extraItemName">{{ t('extraItemName') }}</label>
-            <input 
+            <input
               id="extraItemName"
-              v-model="newExtraItem.name" 
-              type="text" 
+              v-model="newExtraItem.name"
+              type="text"
               :placeholder="t('enterExtraItemName')"
               class="form-input"
               :disabled="isCreating"
             />
           </div>
-          
+
           <div class="form-group">
             <label for="extraItemGeneralPrice">{{ t('generalSalePrice') }} (฿)</label>
-            <input 
+            <input
               id="extraItemGeneralPrice"
-              v-model="newExtraItem.general_price" 
+              v-model="newExtraItem.general_price"
               type="text"
               @input="validatePrice('extra', 'general')"
               placeholder="0"
@@ -262,30 +303,20 @@
             />
             <p v-if="priceError" class="field-error">{{ priceError }}</p>
           </div>
-          
-          <div class="form-group">
-            <label for="extraItemDeliveryPrice">{{ t('deliverySalePrice') }} (฿)</label>
-            <input 
-              id="extraItemDeliveryPrice"
-              v-model="newExtraItem.delivery_price" 
-              type="text"
-              @input="validatePrice('extra', 'delivery')"
-              placeholder="0"
-              class="form-input"
-              :class="{ 'error-input': deliveryPriceError }"
-              :disabled="isCreating"
-            />
-            <p v-if="deliveryPriceError" class="field-error">{{ deliveryPriceError }}</p>
-          </div>
-          
+
+
           <p v-if="createError" class="error-message">{{ createError }}</p>
         </div>
-        
+
         <div class="modal-footer">
           <button @click="closeCreateExtraModal" class="btn-secondary" :disabled="isCreating">
             {{ t('cancel') }}
           </button>
-          <button @click="createExtraMenuItem" class="btn-primary" :disabled="!newExtraItem.name || !isExtraPriceValid || isCreating">
+          <button
+            @click="createExtraMenuItem"
+            class="btn-primary"
+            :disabled="!newExtraItem.name || !isExtraPriceValid || isCreating"
+          >
             <span v-if="isCreating">{{ t('creating') }}...</span>
             <span v-else>{{ t('addItem') }}</span>
           </button>
@@ -299,19 +330,26 @@
         <div class="modal-header">
           <h3>{{ t('editItem') }}</h3>
           <button @click="closeEditModal" class="modal-close">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 6l12 12M6 18L18 6"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M6 6l12 12M6 18L18 6" />
             </svg>
           </button>
         </div>
-        
+
         <div class="modal-body">
           <div class="form-group">
             <label for="editItemName">{{ t('itemName') }}</label>
-            <input 
+            <input
               id="editItemName"
-              v-model="editForm.name" 
-              type="text" 
+              v-model="editForm.name"
+              type="text"
               :placeholder="t('enterItemName')"
               class="form-input"
               :class="{ 'error-input': editFormErrors.name }"
@@ -319,45 +357,37 @@
             />
             <p v-if="editFormErrors.name" class="field-error">{{ editFormErrors.name }}</p>
           </div>
-          
+
           <div class="form-group">
             <label for="editItemGeneralPrice">{{ t('generalSalePrice') }} (฿)</label>
-            <input 
+            <input
               id="editItemGeneralPrice"
-              v-model="editForm.general_price" 
-              type="text" 
+              v-model="editForm.general_price"
+              type="text"
               @input="validateEditPrice('general')"
               placeholder="0"
               class="form-input"
               :class="{ 'error-input': editFormErrors.general_price }"
               :disabled="isUpdating"
             />
-            <p v-if="editFormErrors.general_price" class="field-error">{{ editFormErrors.general_price }}</p>
+            <p v-if="editFormErrors.general_price" class="field-error">
+              {{ editFormErrors.general_price }}
+            </p>
           </div>
-          
-          <div class="form-group">
-            <label for="editItemDeliveryPrice">{{ t('deliverySalePrice') }} (฿)</label>
-            <input 
-              id="editItemDeliveryPrice"
-              v-model="editForm.delivery_price" 
-              type="text"
-              @input="validateEditPrice('delivery')"
-              placeholder="0"
-              class="form-input"
-              :class="{ 'error-input': editFormErrors.delivery_price }"
-              :disabled="isUpdating"
-            />
-            <p v-if="editFormErrors.delivery_price" class="field-error">{{ editFormErrors.delivery_price }}</p>
-          </div>
-          
+
+
           <p v-if="updateError" class="error-message">{{ updateError }}</p>
         </div>
-        
+
         <div class="modal-footer">
           <button @click="closeEditModal" class="btn-secondary" :disabled="isUpdating">
             Cancel
           </button>
-          <button @click="saveItemChanges" class="btn-primary" :disabled="!isEditFormValid || isUpdating">
+          <button
+            @click="saveItemChanges"
+            class="btn-primary"
+            :disabled="!isEditFormValid || isUpdating"
+          >
             <span v-if="isUpdating">{{ t('saving') }}</span>
             <span v-else>{{ t('ok') }}</span>
           </button>
@@ -388,7 +418,6 @@ const showCreateExtraModal = ref(false)
 const isCreating = ref(false)
 const createError = ref('')
 const priceError = ref('')
-const deliveryPriceError = ref('')
 const showEditModal = ref(false)
 const editingItem = ref(null)
 const isUpdating = ref(false)
@@ -396,55 +425,52 @@ const updateError = ref('')
 const editForm = ref({
   name: '',
   general_price: '',
-  delivery_price: ''
 })
 const editFormErrors = ref({
   name: '',
   general_price: '',
-  delivery_price: ''
 })
 
 // New item forms
 const newMainItem = ref({
   name: '',
   general_price: '',
-  delivery_price: ''
 })
 
 const newExtraItem = ref({
   name: '',
   general_price: '',
-  delivery_price: ''
 })
 
 // Computed properties for button validation
 const isMainPriceValid = computed(() => {
   const generalPrice = parseFloat(newMainItem.value.general_price)
-  const deliveryPrice = parseFloat(newMainItem.value.delivery_price)
-  return newMainItem.value.general_price !== '' && newMainItem.value.delivery_price !== '' && 
-         !isNaN(generalPrice) && generalPrice > 0 && 
-         !isNaN(deliveryPrice) && deliveryPrice > 0
+  return (
+    newMainItem.value.general_price !== '' &&
+    !isNaN(generalPrice) &&
+    generalPrice > 0
+  )
 })
 
 const isExtraPriceValid = computed(() => {
   const generalPrice = parseFloat(newExtraItem.value.general_price)
-  const deliveryPrice = parseFloat(newExtraItem.value.delivery_price)
-  return newExtraItem.value.general_price !== '' && newExtraItem.value.delivery_price !== '' && 
-         !isNaN(generalPrice) && generalPrice > 0 && 
-         !isNaN(deliveryPrice) && deliveryPrice > 0
+  return (
+    newExtraItem.value.general_price !== '' &&
+    !isNaN(generalPrice) &&
+    generalPrice > 0
+  )
 })
 
 const isEditFormValid = computed(() => {
   const generalPrice = parseFloat(editForm.value.general_price)
-  const deliveryPrice = parseFloat(editForm.value.delivery_price)
-  return editForm.value.name !== '' && 
-         editForm.value.general_price !== '' && 
-         editForm.value.delivery_price !== '' && 
-         !isNaN(generalPrice) && generalPrice > 0 && 
-         !isNaN(deliveryPrice) && deliveryPrice > 0 &&
-         !editFormErrors.value.name &&
-         !editFormErrors.value.general_price &&
-         !editFormErrors.value.delivery_price
+  return (
+    editForm.value.name !== '' &&
+    editForm.value.general_price !== '' &&
+    !isNaN(generalPrice) &&
+    generalPrice > 0 &&
+    !editFormErrors.value.name &&
+    !editFormErrors.value.general_price
+  )
 })
 
 // Format currency using language-aware formatter
@@ -461,53 +487,44 @@ const goBack = () => {
 const validatePrice = (type, priceType) => {
   let value
   if (type === 'main') {
-    value = priceType === 'general' ? newMainItem.value.general_price : newMainItem.value.delivery_price
+    value = newMainItem.value.general_price
   } else {
-    value = priceType === 'general' ? newExtraItem.value.general_price : newExtraItem.value.delivery_price
+    value = newExtraItem.value.general_price
   }
-  
+
   const originalValue = value.toString()
-  
+
   // Check if user tried to enter non-numeric characters
   const hasInvalidChars = /[^0-9.]/.test(originalValue)
-  
+
   // Remove any non-numeric characters except decimal point
   value = originalValue.replace(/[^0-9.]/g, '')
-  
+
   // Ensure only one decimal point
   const parts = value.split('.')
   if (parts.length > 2) {
     value = parts[0] + '.' + parts.slice(1).join('')
   }
-  
+
   // Limit to 2 decimal places
   if (parts[1] && parts[1].length > 2) {
     value = parts[0] + '.' + parts[1].substring(0, 2)
   }
-  
+
   // Update the model
   if (type === 'main') {
-    if (priceType === 'general') {
-      newMainItem.value.general_price = value
-    } else {
-      newMainItem.value.delivery_price = value
-    }
+    newMainItem.value.general_price = value
   } else {
-    if (priceType === 'general') {
-      newExtraItem.value.general_price = value
-    } else {
-      newExtraItem.value.delivery_price = value
-    }
+    newExtraItem.value.general_price = value
   }
-  
+
   // Set error message if invalid characters were entered
-  const errorRef = priceType === 'general' ? priceError : deliveryPriceError
   if (hasInvalidChars) {
-    errorRef.value = 'Only numbers are allowed for price'
+    priceError.value = 'Only numbers are allowed for price'
   } else if (value && parseFloat(value) <= 0) {
-    errorRef.value = 'Price must be greater than 0'
+    priceError.value = 'Price must be greater than 0'
   } else {
-    errorRef.value = ''
+    priceError.value = ''
   }
 }
 
@@ -516,15 +533,13 @@ const openCreateMainModal = () => {
   showCreateMainModal.value = true
   createError.value = ''
   priceError.value = ''
-  deliveryPriceError.value = ''
 }
 
 const closeCreateMainModal = () => {
   showCreateMainModal.value = false
-  newMainItem.value = { name: '', general_price: '', delivery_price: '' }
+  newMainItem.value = { name: '', general_price: '' }
   createError.value = ''
   priceError.value = ''
-  deliveryPriceError.value = ''
 }
 
 // Modal handlers for Extra Menu
@@ -532,28 +547,28 @@ const openCreateExtraModal = () => {
   showCreateExtraModal.value = true
   createError.value = ''
   priceError.value = ''
-  deliveryPriceError.value = ''
 }
 
 const closeCreateExtraModal = () => {
   showCreateExtraModal.value = false
-  newExtraItem.value = { name: '', general_price: '', delivery_price: '' }
+  newExtraItem.value = { name: '', general_price: '' }
   createError.value = ''
   priceError.value = ''
-  deliveryPriceError.value = ''
 }
 
 // Create Main Menu Item
 const createMainMenuItem = async () => {
-  if (!newMainItem.value.name || !newMainItem.value.general_price || !newMainItem.value.delivery_price) {
+  if (
+    !newMainItem.value.name ||
+    !newMainItem.value.general_price
+  ) {
     createError.value = 'Please fill in all required fields'
     return
   }
 
   const generalPrice = parseFloat(newMainItem.value.general_price)
-  const deliveryPrice = parseFloat(newMainItem.value.delivery_price)
-  if (isNaN(generalPrice) || generalPrice <= 0 || isNaN(deliveryPrice) || deliveryPrice <= 0) {
-    createError.value = 'Please enter valid prices'
+  if (isNaN(generalPrice) || generalPrice <= 0) {
+    createError.value = 'Please enter valid price'
     return
   }
 
@@ -571,8 +586,8 @@ const createMainMenuItem = async () => {
         merchant_id: merchantId.value,
         item_name: newMainItem.value.name,
         general_price_sale: generalPrice,
-        delivery_price_sale: deliveryPrice
-      })
+        delivery_price_sale: generalPrice,
+      }),
     })
 
     if (!response.ok) {
@@ -580,19 +595,18 @@ const createMainMenuItem = async () => {
     }
 
     const data = await response.json()
-    
+
     // Add the new item to the local array
     mainMenuItems.value.push({
       id: data.id,
       name: data.item_name,
       general_price: data.general_price_sale,
-      delivery_price: data.delivery_price_sale,
-      type: 'main'
+      delivery_price: data.general_price_sale,
+      type: 'main',
     })
-    
+
     closeCreateMainModal()
     console.log('Created main menu item:', data)
-    
   } catch (error) {
     console.error('Error creating menu item:', error)
     createError.value = 'Failed to create menu item. Please try again.'
@@ -603,15 +617,17 @@ const createMainMenuItem = async () => {
 
 // Create Extra Menu Item
 const createExtraMenuItem = async () => {
-  if (!newExtraItem.value.name || !newExtraItem.value.general_price || !newExtraItem.value.delivery_price) {
+  if (
+    !newExtraItem.value.name ||
+    !newExtraItem.value.general_price
+  ) {
     createError.value = 'Please fill in all required fields'
     return
   }
 
   const generalPrice = parseFloat(newExtraItem.value.general_price)
-  const deliveryPrice = parseFloat(newExtraItem.value.delivery_price)
-  if (isNaN(generalPrice) || generalPrice <= 0 || isNaN(deliveryPrice) || deliveryPrice <= 0) {
-    createError.value = 'Please enter valid prices'
+  if (isNaN(generalPrice) || generalPrice <= 0) {
+    createError.value = 'Please enter valid price'
     return
   }
 
@@ -629,8 +645,8 @@ const createExtraMenuItem = async () => {
         merchant_id: merchantId.value,
         item_name: newExtraItem.value.name,
         general_price_sale: generalPrice,
-        delivery_price_sale: deliveryPrice
-      })
+        delivery_price_sale: generalPrice,
+      }),
     })
 
     if (!response.ok) {
@@ -638,19 +654,18 @@ const createExtraMenuItem = async () => {
     }
 
     const data = await response.json()
-    
+
     // Add the new item to the local array
     extraMenuItems.value.push({
       id: data.id,
       name: data.item_name,
       general_price: data.general_price_sale,
-      delivery_price: data.delivery_price_sale,
-      type: 'extra'
+      delivery_price: data.general_price_sale,
+      type: 'extra',
     })
-    
+
     closeCreateExtraModal()
     console.log('Created extra menu item:', data)
-    
   } catch (error) {
     console.error('Error creating extra item:', error)
     createError.value = 'Failed to create extra item. Please try again.'
@@ -671,7 +686,7 @@ const deleteMenuItem = async (itemId, type) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-      }
+      },
     })
 
     if (!response.ok) {
@@ -680,11 +695,11 @@ const deleteMenuItem = async (itemId, type) => {
 
     // Remove from local array after successful deletion
     if (type === 'main') {
-      mainMenuItems.value = mainMenuItems.value.filter(item => item.id !== itemId)
+      mainMenuItems.value = mainMenuItems.value.filter((item) => item.id !== itemId)
     } else {
-      extraMenuItems.value = extraMenuItems.value.filter(item => item.id !== itemId)
+      extraMenuItems.value = extraMenuItems.value.filter((item) => item.id !== itemId)
     }
-    
+
     console.log(`Deleted ${type} item:`, itemId)
   } catch (error) {
     console.error('Error deleting item:', error)
@@ -701,12 +716,12 @@ const fetchMenuItems = async () => {
     const mainResponse = await fetch(`${API_BASE_URL}/menu-items?merchant_id=${merchantId.value}`)
     if (mainResponse.ok) {
       const mainData = await mainResponse.json()
-      mainMenuItems.value = mainData.map(item => ({
+      mainMenuItems.value = mainData.map((item) => ({
         id: item.id,
         name: item.item_name,
         general_price: item.general_price_sale || 0,
         delivery_price: item.delivery_price_sale || 0,
-        type: 'main'
+        type: 'main',
       }))
     }
 
@@ -714,12 +729,12 @@ const fetchMenuItems = async () => {
     const extraResponse = await fetch(`${API_BASE_URL}/extra-items?merchant_id=${merchantId.value}`)
     if (extraResponse.ok) {
       const extraData = await extraResponse.json()
-      extraMenuItems.value = extraData.map(item => ({
+      extraMenuItems.value = extraData.map((item) => ({
         id: item.id,
         name: item.item_name,
         general_price: item.general_price_sale || 0,
         delivery_price: item.delivery_price_sale || 0,
-        type: 'extra'
+        type: 'extra',
       }))
     }
   } catch (error) {
@@ -733,12 +748,10 @@ const openEditModal = (item, itemType) => {
   editForm.value = {
     name: item.name,
     general_price: item.general_price.toString(),
-    delivery_price: item.delivery_price.toString()
   }
   editFormErrors.value = {
     name: '',
     general_price: '',
-    delivery_price: ''
   }
   updateError.value = ''
   showEditModal.value = true
@@ -750,47 +763,45 @@ const closeEditModal = () => {
   editForm.value = {
     name: '',
     general_price: '',
-    delivery_price: ''
   }
   editFormErrors.value = {
     name: '',
     general_price: '',
-    delivery_price: ''
   }
   updateError.value = ''
 }
 
 const validateEditPrice = (priceType) => {
-  let value = editForm.value[priceType]
+  let value = editForm.value.general_price
   const originalValue = value.toString()
-  
+
   // Check if user tried to enter non-numeric characters
   const hasInvalidChars = /[^0-9.]/.test(originalValue)
-  
+
   // Remove any non-numeric characters except decimal point
   value = originalValue.replace(/[^0-9.]/g, '')
-  
+
   // Ensure only one decimal point
   const parts = value.split('.')
   if (parts.length > 2) {
     value = parts[0] + '.' + parts.slice(1).join('')
   }
-  
+
   // Limit to 2 decimal places
   if (parts[1] && parts[1].length > 2) {
     value = parts[0] + '.' + parts[1].substring(0, 2)
   }
-  
+
   // Update the model
-  editForm.value[priceType] = value
-  
+  editForm.value.general_price = value
+
   // Set error message if invalid characters were entered
   if (hasInvalidChars) {
-    editFormErrors.value[priceType] = 'Only numbers are allowed for price'
+    editFormErrors.value.general_price = 'Only numbers are allowed for price'
   } else if (value && parseFloat(value) <= 0) {
-    editFormErrors.value[priceType] = 'Price must be greater than 0'
+    editFormErrors.value.general_price = 'Price must be greater than 0'
   } else {
-    editFormErrors.value[priceType] = ''
+    editFormErrors.value.general_price = ''
   }
 }
 
@@ -801,15 +812,9 @@ const saveItemChanges = async () => {
   }
 
   const generalPrice = parseFloat(editForm.value.general_price)
-  const deliveryPrice = parseFloat(editForm.value.delivery_price)
-  
+
   if (isNaN(generalPrice) || generalPrice <= 0) {
     editFormErrors.value.general_price = 'Please enter a valid price greater than 0'
-    return
-  }
-  
-  if (isNaN(deliveryPrice) || deliveryPrice <= 0) {
-    editFormErrors.value.delivery_price = 'Please enter a valid price greater than 0'
     return
   }
 
@@ -821,7 +826,7 @@ const saveItemChanges = async () => {
     const updateData = {
       item_name: editForm.value.name,
       general_price_sale: generalPrice,
-      delivery_price_sale: deliveryPrice
+      delivery_price_sale: generalPrice,
     }
 
     const response = await fetch(`${API_BASE_URL}/${endpoint}/${editingItem.value.id}`, {
@@ -829,7 +834,7 @@ const saveItemChanges = async () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(updateData)
+      body: JSON.stringify(updateData),
     })
 
     if (!response.ok) {
@@ -837,22 +842,21 @@ const saveItemChanges = async () => {
     }
 
     const data = await response.json()
-    
+
     // Update local data
     const targetArray = editingItem.value.type === 'main' ? mainMenuItems : extraMenuItems
-    const itemIndex = targetArray.value.findIndex(item => item.id === editingItem.value.id)
+    const itemIndex = targetArray.value.findIndex((item) => item.id === editingItem.value.id)
     if (itemIndex !== -1) {
       targetArray.value[itemIndex] = {
         ...targetArray.value[itemIndex],
         name: editForm.value.name,
         general_price: generalPrice,
-        delivery_price: deliveryPrice
+        delivery_price: generalPrice,
       }
     }
 
     console.log(`Updated ${editingItem.value.type} item:`, data)
     closeEditModal()
-    
   } catch (error) {
     console.error('Error updating item:', error)
     updateError.value = 'Failed to update item. Please try again.'
@@ -866,7 +870,7 @@ onMounted(() => {
   // Get merchant data from route params
   merchantId.value = route.params.merchantId || route.query.merchantId || ''
   merchantName.value = route.params.merchantName || route.query.merchantName || 'Merchant'
-  
+
   // Fetch menu items from API
   console.log('Managing merchant:', merchantId.value, merchantName.value)
   fetchMenuItems()
@@ -1349,7 +1353,6 @@ onMounted(() => {
 .price-value.delivery {
   color: #3b82f6;
 }
-
 
 /* Responsive */
 @media (max-width: 768px) {
